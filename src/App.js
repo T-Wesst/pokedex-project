@@ -15,7 +15,7 @@ export default function App() {
     fetchData();
   }, []);
 
-  const [user, setUser] = useState('tyroo');
+  const [user, setUser] = useState(null);
   const currentUser = useMemo(() => ({ user, setUser }), [user, setUser]);
 
   return (
