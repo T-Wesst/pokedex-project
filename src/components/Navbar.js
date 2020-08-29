@@ -5,7 +5,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { NoMeetingRoom, MeetingRoom } from '@material-ui/icons';
+import { NoMeetingRoom, MeetingRoom, Home } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -27,10 +28,19 @@ export default function ButtonAppBar() {
             Pokedex Project
           </Typography>
           <Button color='inherit'>
-            Login <MeetingRoom />
+            <Link to='/dashboard'>
+              Home <Home />
+            </Link>
           </Button>
           <Button color='inherit'>
-            Logout <NoMeetingRoom />
+            <Link to='/login'>
+              Login <MeetingRoom />
+            </Link>
+          </Button>
+          <Button color='inherit'>
+            <Link to='/logout'>
+              Logout <NoMeetingRoom />
+            </Link>
           </Button>
         </Toolbar>
       </AppBar>

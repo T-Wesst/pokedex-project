@@ -1,7 +1,8 @@
-import Login from './Login';
 import SignUp from './SignUp';
 import NotFound from './NotFound';
-import Home from './Home';
+import Landing from './Landing';
 import Dashboard from './Dashboard';
+import Logout from './Logout';
+import Login from './Logout';
 
-export { Login, SignUp, NotFound, Home, Dashboard };
+export { SignUp, Logout, Login, NotFound, Landing, Dashboard };
