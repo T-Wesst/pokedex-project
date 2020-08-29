@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { NoMeetingRoom, MeetingRoom } from '@material-ui/icons';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -25,8 +26,12 @@ export default function ButtonAppBar() {
           <Typography variant='h6' className={classes.title}>
             Pokedex Project
           </Typography>
-          <Button color='inherit'>Login</Button>
-          <Button color='inherit'>Logout</Button>
+          <Button color='inherit'>
+            Login <MeetingRoom />
+          </Button>
+          <Button color='inherit'>
+            Logout <NoMeetingRoom />
+          </Button>
         </Toolbar>
       </AppBar>
       <CssBaseline />
