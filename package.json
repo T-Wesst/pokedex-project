@@ -1,0 +1,31 @@
+{
+  "name": "pokedex-project",
+  "version": "1.0.0",
+  "description": "Create a Full Stack React app consisting of a landing page and a pokemon list view showing the pokemon portrait and their name. With user login/logout using a backend of your choice (Express.js, Django, etc.).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "kill": "kill-port 3000 3001 9229",
+    "start": "node server/server",
+    "dev": "npm run kill && concurrently \"cd server && nodemon\" \"cd client && npm start\"",
+    "install-all": "npm i && cd server && npm i && cd ../client && npm i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/T-Wesst/pokedex-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/T-Wesst/pokedex-project/issues"
+  },
+  "homepage": "https://github.com/T-Wesst/pokedex-project#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "kill-port": "^1.6.1",
+    "nodemon": "^2.0.4"
+  }
+}
