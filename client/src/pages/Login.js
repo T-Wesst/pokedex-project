@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -14,6 +14,8 @@ import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
+import axios from 'axios';
+import { UserContext } from '../UserContext';
 
 const styles = (theme) => ({
   main: {
@@ -51,7 +53,16 @@ const styles = (theme) => ({
 
 function Login({ classes }) {
   const { handleSubmit, register } = useForm();
-  const onSubmit = (data) => console.log(data);
+  // const { user, setUser } = useContext(UserContext);
+
+  const onSubmit = (data) => {
+    //   const login = async () => {
+    //     const { data } = await axios.post('/api/users/login', user);
+    //     setUser(data);
+    //   };
+    //   login();
+    console.log(data);
+  };
   return (
     <main className={classes.main}>
       <CssBaseline />
