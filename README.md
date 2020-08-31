@@ -18,3 +18,14 @@ Create a Full Stack React app consisting of a landing page and a pokemon list vi
 - Add ability for user to favorite a pokemon
 - Use React Hooks
 - Use Material UI
+
+## Getting Started
+
+Make sure that you have Git, Node.js and MongoDB installed. Then in your terminal run the following:
+
+```sh
+$ git clone git@github.com:T-Wesst/pokedex-project.git
+$ mongod
+$ npm run install-all
+$ npm run dev
+```
