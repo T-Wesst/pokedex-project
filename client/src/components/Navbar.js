@@ -27,7 +27,7 @@ export default function ButtonAppBar() {
       <AppBar position='static' color='secondary'>
         <Toolbar>
           <Typography variant='h6' className={classes.title}>
-            {user ? user : 'Pokedex Project'}
+            {user ? `Welcome ${user}` : 'Pokedex Project'}
           </Typography>
           <Button color='inherit'>
             <Link to='/dashboard'>
