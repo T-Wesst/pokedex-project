@@ -8,6 +8,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { NoMeetingRoom, MeetingRoom, Home } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../UserContext';
+import axios from 'axios';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -21,6 +22,12 @@ const useStyles = makeStyles(() => ({
 export default function ButtonAppBar() {
   const classes = useStyles();
   const { user, setUser } = useContext(UserContext);
+  const logout = async () => {
+    const { data: { message } } = await axios.get('/api/users/logout');
+    // do something with message
+    console.log(message);
+    setUser(null);
+  };
 
   return (
     <div className={classes.root}>
@@ -46,7 +53,7 @@ export default function ButtonAppBar() {
           {!user ? (
             ''
           ) : (
-            <Button onClick={() => setUser(null)} color='inherit'>
+            <Button onClick={logout} color='inherit'>
               <Link to='/'>
                 Logout <NoMeetingRoom />
               </Link>
