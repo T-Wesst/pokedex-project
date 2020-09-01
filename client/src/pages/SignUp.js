@@ -13,6 +13,7 @@ export default function Register() {
     const { username } = input;
     setUser(username);
     // do something with message & status
+    console.log(message, status)
     // redirect to dashboard
   };
 
