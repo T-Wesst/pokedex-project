@@ -21,48 +21,48 @@ const styles = (theme) => ({
   main: {
     width: 'auto',
     display: 'block',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
+    marginLeft: theme.spacing(3),
+    marginRight: theme.spacing(3),
+    [theme.breakpoints.up(400 + theme.spacing(3 * 2))]: {
       width: 400,
       marginLeft: 'auto',
       marginRight: 'auto',
     },
   },
   paper: {
-    marginTop: theme.spacing.unit * 8,
+    marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${
-      theme.spacing.unit * 3
-    }px`,
+    padding: `${theme.spacing(2)}px ${theme.spacing(3)}px ${theme.spacing(
+      3
+    )}px`,
   },
   avatar: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: '100%',
-    marginTop: theme.spacing.unit,
+    marginTop: theme.spacing(1),
   },
   submit: {
-    marginTop: theme.spacing.unit * 3,
+    marginTop: theme.spacing(3),
   },
 });
 
 function Login({ classes }) {
   const { handleSubmit, register } = useForm();
-  // const { user, setUser } = useContext(UserContext);
-
-  const onSubmit = (data) => {
-    //   const login = async () => {
-    //     const { data } = await axios.post('/api/users/login', user);
-    //     setUser(data);
-    //   };
-    //   login();
-    console.log(data);
+  const { setUser } = useContext(UserContext);
+  const login = async (input) => {
+    const {data: { message, status } } = await axios.post('/api/users/login', input);
+    const { username } = input;
+    setUser(username);
+    // do something with message & status
+    console.log(message, status);
+    // redirect to dashboard
   };
+
   return (
     <main className={classes.main}>
       <CssBaseline />
@@ -73,15 +73,15 @@ function Login({ classes }) {
         <Typography component='h1' variant='h5'>
           Log in
         </Typography>
-        <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
+        <form onSubmit={handleSubmit(login)} className={classes.form}>
           <FormControl margin='normal' required fullWidth>
-            <InputLabel htmlFor='email'>Email Address</InputLabel>
+            <InputLabel htmlFor='username'>User Name</InputLabel>
             <Input
-              id='email'
-              type='email'
-              name='email'
+              id='username'
+              type='text'
+              name='username'
               inputRef={register}
-              autoComplete='email'
+              autoComplete='username'
               autoFocus
             />
           </FormControl>
@@ -92,7 +92,7 @@ function Login({ classes }) {
               type='password'
               id='password'
               autoComplete='current-password'
-              inputRef={register({ require: true, minLength: 8 })}
+              inputRef={register({ require: true })}
             />
           </FormControl>
           <FormControlLabel
@@ -122,7 +122,7 @@ function Login({ classes }) {
               </Link>
             </Grid>
             <Grid item>
-              <Link href='#' varaint='body2'>
+              <Link href='/signup' varaint='body2'>
                 {'Dont have an account? Sign Up'}
               </Link>
             </Grid>
