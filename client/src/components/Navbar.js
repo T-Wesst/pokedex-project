@@ -45,9 +45,7 @@ export default function ButtonAppBar() {
               </Link>
             </Button>
           ) : null}
-          {user ? (
-            ''
-          ) : (
+          {user ? null : (
             <Button color='inherit'>
               <Link to='/login'>
                 Login <MeetingRoom />
