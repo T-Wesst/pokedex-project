@@ -4,15 +4,17 @@ Create a Full Stack React app consisting of a landing page and a pokemon list vi
 
 ## Requirements:
 
-- Fetch pokemon using the PokeAPI: https://pokeapi.co/
+[x] Fetch pokemon using the PokeAPI: https://pokeapi.co/
+
 - List view should be paginated
-- User should not be able to see the pokemon list view until they’ve logged in
 
-  [x] User should be able to signup
+[x] User should not be able to see the pokemon list view until they’ve logged in
 
-  [x] User should be able to login
+[x] User should be able to signup
 
-  [x] User should be able to logout
+[x] User should be able to login
+
+[x] User should be able to logout
 
 - When clicking on a Pokemon List Item, the app should spawn a pop up dialog, showing the pokemon’s name, portrait and other metadata such as: abilities, type, stats, moves, etc.
 - User should be able to search pokemon
