@@ -33,8 +33,6 @@ export default function App() {
     setPokemonData(pokeData);
   };
 
-  console.log(pokemonData);
-
   const [user, setUser] = useState(null);
   const currentUser = useMemo(() => ({ user, setUser }), [user, setUser]);
 
@@ -44,7 +42,8 @@ export default function App() {
         <UserContext.Provider value={currentUser}>
           <Navbar />
           <Switch>
-            <ProtectedRoute exact path='/dashboard' component={Dashboard} />
+            <ProtectedRoute data={pokemonData} exact path='/dashboard' component={Dashboard}
+            />
             <Route exact path='/' render={() => <Landing />} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/signup' render={() => <SignUp />} />
