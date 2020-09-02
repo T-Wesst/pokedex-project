@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: 0,
     paddingTop: '56.25%',
+    backgroundSize: 'contain',
   },
   avatar: {
     backgroundColor: red[500],
