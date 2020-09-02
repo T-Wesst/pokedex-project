@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { SignUp, Login, NotFound, Landing, Dashboard } from './pages/index';
 import Navbar from './components/Navbar';
 import { UserContext } from './UserContext';
+import ProtectedRoute from './components/ProtectedRoute';
 
 export default function App() {
   const [data, setData] = useState({ pokemon: [] });
@@ -24,7 +25,7 @@ export default function App() {
         <UserContext.Provider value={currentUser}>
           <Navbar />
           <Switch>
-            <Route exact path='/dashboard' component={Dashboard} />
+            <ProtectedRoute exact path='/dashboard' component={Dashboard} />
             <Route exact path='/' render={() => <Landing />} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/signup' render={() => <SignUp />} />

@@ -23,7 +23,9 @@ export default function ButtonAppBar() {
   const classes = useStyles();
   const { user, setUser } = useContext(UserContext);
   const logout = async () => {
-    const { data: { message } } = await axios.get('/api/users/logout');
+    const {
+      data: { message },
+    } = await axios.get('/api/users/logout');
     // do something with message
     console.log(message);
     setUser(null);
@@ -36,11 +38,13 @@ export default function ButtonAppBar() {
           <Typography variant='h6' className={classes.title}>
             {user ? `Welcome ${user}` : 'Pokedex Project'}
           </Typography>
-          <Button color='inherit'>
-            <Link to='/dashboard'>
-              Home <Home />
-            </Link>
-          </Button>
+          {user ? (
+            <Button color='inherit'>
+              <Link to='/dashboard'>
+                Home <Home />
+              </Link>
+            </Button>
+          ) : null}
           {user ? (
             ''
           ) : (
@@ -50,9 +54,7 @@ export default function ButtonAppBar() {
               </Link>
             </Button>
           )}
-          {!user ? (
-            ''
-          ) : (
+          {!user ? null : (
             <Button onClick={logout} color='inherit'>
               <Link to='/'>
                 Logout <NoMeetingRoom />
