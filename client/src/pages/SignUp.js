@@ -3,19 +3,22 @@ import { Button, TextField, Link } from '@material-ui/core';
 import { Grid, Typography, Container } from '@material-ui/core';
 import { UserContext } from '../UserContext';
 import { useForm } from 'react-hook-form';
+import {Redirect} from 'react-router-dom'
 import axios from 'axios';
 
 export default function Register() {
   const { handleSubmit, register } = useForm();
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const signup = async (input) => {
     const { data: { message, status } } = await axios.post('/api/users/signup', input);
     const { username } = input;
     setUser(username);
     // do something with message & status
     console.log(message, status)
-    // redirect to dashboard
   };
+  if(user){
+    return <Redirect to="/dashboard"/>
+  }
 
   return (
     <Container component='main' maxWidth='xs' onSubmit={handleSubmit(signup)}>

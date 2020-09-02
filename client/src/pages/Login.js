@@ -16,6 +16,7 @@ import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 import axios from 'axios';
 import { UserContext } from '../UserContext';
+import {Redirect} from 'react-router-dom';
 
 const styles = (theme) => ({
   main: {
@@ -53,16 +54,17 @@ const styles = (theme) => ({
 
 function Login({ classes }) {
   const { handleSubmit, register } = useForm();
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const login = async (input) => {
     const {data: { message, status } } = await axios.post('/api/users/login', input);
     const { username } = input;
     setUser(username);
     // do something with message & status
     console.log(message, status);
-    // redirect to dashboard
   };
-
+  if(user){
+    return <Redirect to="/dashboard"/>
+  }
   return (
     <main className={classes.main}>
       <CssBaseline />
