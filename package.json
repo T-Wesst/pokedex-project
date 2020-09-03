@@ -4,6 +4,9 @@
   "description": "Create a Full Stack React app consisting of a landing page and a pokemon list view showing the pokemon portrait and their name. With user login/logout using a backend of your choice (Express.js, Django, etc.).",
   "main": "index.js",
   "scripts": {
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "kill": "kill-port 3000 3001 9229",
     "start": "node server/server",

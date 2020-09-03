@@ -4,7 +4,7 @@ const logger = require('morgan');
 const { config } = require('dotenv');
 const cookieParser = require('cookie-parser');
 const userRoutes = require('./routes/user');
-const { PORT } = process.env;
+const { PORT } = process.env || 3001;
 // DATABASE CONNECTION
 require('./config/connection');
 // ROUTE LOGGER
@@ -18,5 +18,9 @@ config({ debug: process.env.DEBUG });
 app.use(cookieParser(process.env.SECRET));
 // ROUTES
 app.use('/api/users', userRoutes);
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
 
 app.listen(PORT, () => console.log(`App running on http://localhost:${PORT}`));
