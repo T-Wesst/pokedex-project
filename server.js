@@ -4,7 +4,7 @@ const logger = require('morgan');
 const { config } = require('dotenv');
 const cookieParser = require('cookie-parser');
 const userRoutes = require('./routes/user');
-const { PORT } = process.env || 3001;
+const PORT = process.env.PORT || 3001;
 // DATABASE CONNECTION
 require('./config/connection');
 // ROUTE LOGGER
