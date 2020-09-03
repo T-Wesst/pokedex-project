@@ -6,7 +6,7 @@ Create a Full Stack React app consisting of a landing page and a pokemon list vi
 
 [x] Fetch pokemon using the PokeAPI: https://pokeapi.co/
 
-[] List view should be paginated
+[x] List view should be paginated
 
 [x] User should not be able to see the pokemon list view until they’ve logged in
 
