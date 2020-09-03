@@ -55,39 +55,13 @@ export default function PokemonCard(pokemon) {
     <div>
       <Card>
         <CardHeader
-          title={data.name}
-          subheader={data.types.map((type) => {
-            return <div>{type.type.name}</div>;
-          })}
+          title={data.name.charAt(0).toUpperCase() + data.name.slice(1)}
+          subheader={`type: ${data.types[0].type.name}`}
         />
         <CardMedia
           className={classes.media}
           image={data.sprites.front_default}
         />
-        <CardContent>
-          <li>Weight: {data.weight}</li>
-          <li>Height: {data.height}</li>
-          <Typography color='textSecondary'>
-            {data.abilities.map((ability) => {
-              return <div>{ability.ability.name}</div>;
-            })}
-            {data.stats.map((stat) => {
-              return <div>{stat.stat.name}</div>;
-            })}
-            {data.moves.map((move) => {
-              return <div>{move.move.name}</div>;
-            })}
-          </Typography>
-          <Paper component='ul' className={classes.root}>
-            {/* {tags.map((tag) => {
-              return (
-                <li>
-                  <Chip label={tag} className={classes.chip} />
-                </li>
-              );
-            })} */}
-          </Paper>
-        </CardContent>
         <CardActions disableSpacing>
           <IconButton aria-label='add to favorites'>
             <FavoriteIcon />
