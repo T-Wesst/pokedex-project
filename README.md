@@ -18,17 +18,17 @@ Create a Full Stack React app consisting of a landing page and a pokemon list vi
 
 [] When clicking on a Pokemon List Item, the app should spawn a pop up dialog, showing the pokemon’s:
 
-[x] name
+[] name
 
-[x] portrait
+[] portrait
 
-[x] abilities
+[] abilities
 
-[x] type
+[] type
 
-[x] stats
+[] stats
 
-[x] moves
+[] moves
 
 [] User should be able to search pokemon
 
@@ -44,11 +44,10 @@ Create a Full Stack React app consisting of a landing page and a pokemon list vi
 
 ## Getting Started
 
-Make sure that you have Git, Node.js and MongoDB installed. Then in your terminal run the following:
+Make sure that you have Git, Node.js and MongoDB installed. Start your MongoDB process and in your terminal run the following:
 
 ```sh
 $ git clone git@github.com:T-Wesst/pokedex-project.git
-$ mongod
 $ npm run install-all
 $ npm run dev
 ```
