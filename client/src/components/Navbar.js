@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
 import { makeStyles, fade } from '@material-ui/core/styles';
-import { AppBar, Toolbar, InputBase } from '@material-ui/core';
+import { AppBar, Toolbar } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import SearchIcon from '@material-ui/icons/Search';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../UserContext';
 import axios from 'axios';
@@ -83,21 +82,6 @@ export default function ButtonAppBar() {
           <Typography variant='h6' className={classes.title}>
             {user ? `Welcome ${user}` : 'Pokedex Project'}
           </Typography>
-          {user ? (
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder='Search…'
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-                inputProps={{ 'aria-label': 'search' }}
-              />
-            </div>
-          ) : null}
           {user ? (
             <Button color='inherit'>
               <Link to='/dashboard'>Home</Link>

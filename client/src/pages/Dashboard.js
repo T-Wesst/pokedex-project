@@ -6,7 +6,8 @@ import Paper from '@material-ui/core/Paper';
 import PokemonCard from '../components/PokemonCard';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Button, ButtonGroup } from '@material-ui/core';
+import { Button, ButtonGroup, InputBase } from '@material-ui/core';
+import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -14,9 +15,17 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function PokemonCards({ match: { params: { page = 1 } } }) {
+export default function PokemonCards({
+  match: {
+    params: { page = 1 },
+  },
+}) {
   const [pokemonData, setPokemonData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
+  const handleChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
   const baseURL = 'https://pokeapi.co/api/v2/pokemon/';
   const offset = (page - 1) * 20;
 
@@ -53,6 +62,21 @@ export default function PokemonCards({ match: { params: { page = 1 } } }) {
             Next
           </Button>
         </ButtonGroup>
+        <div className={classes.search}>
+          <div className={classes.searchIcon}>
+            <SearchIcon />
+          </div>
+          <InputBase
+            placeholder='Search…'
+            value={searchTerm}
+            onChange={handleChange}
+            classes={{
+              root: classes.inputRoot,
+              input: classes.inputInput,
+            }}
+            inputProps={{ 'aria-label': 'search' }}
+          />
+        </div>
         {isLoading ? (
           <h1>Loading...</h1>
         ) : (
