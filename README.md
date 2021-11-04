@@ -17,18 +17,12 @@ Create a Full Stack React app consisting of a landing page and a pokemon list vi
 [x] User should be able to logout
 
 [] When clicking on a Pokemon List Item, the app should spawn a pop up dialog, showing the pokemon’s:
-
-[] name
-
-[] portrait
-
-[] abilities
-
-[] type
-
-[] stats
-
-[] moves
+- name
+- portrait
+- abilities
+- type
+- stats
+- moves
 
 [] User should be able to search pokemon
 
