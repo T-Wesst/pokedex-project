@@ -1,8 +1,7 @@
 const express = require('express');
-const path = require('path');
 const app = express();
 const logger = require('morgan');
-const { config } = require('dotenv');
+require('dotenv').config({ path: '../.env', debug: process.env.DEBUG });
 const cookieParser = require('cookie-parser');
 const userRoutes = require('./routes/user');
 const PORT = process.env.PORT || 3001;
@@ -13,8 +12,6 @@ app.use(logger('dev'));
 // Parse JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// load environment variables
-config({ debug: process.env.DEBUG });
 // Parse Cookies
 app.use(cookieParser(process.env.SECRET));
 // ROUTES
