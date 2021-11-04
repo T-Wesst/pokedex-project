@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const logger = require('morgan');
 require('dotenv').config({ path: '../.env', debug: process.env.DEBUG });
@@ -18,7 +19,14 @@ app.use(cookieParser(process.env.SECRET));
 app.use('/api/users', userRoutes);
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+  app.use(express.static(path.join(__dirname,'client/build')));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+  })
+} else {
+  app.get("/", (req, res) => {
+    res.send("API Running")
+  })
 }
 
 app.listen(PORT, () => console.log(`App running on http://localhost:${PORT}`));
