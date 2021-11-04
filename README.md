@@ -42,6 +42,8 @@ Make sure that you have Git, Node.js and MongoDB installed. Start your MongoDB p
 
 ```sh
 $ git clone git@github.com:T-Wesst/pokedex-project.git
+$ cd pokedex-project
+$ echo "SALTROUNDS=10\nSECRECT=<secretString>\nPORT=3001\nMONGODB_URI=<mongoDBCloudInstance>\nNODE_ENV=development" > .env
 $ npm run install-all
 $ npm run dev
 ```
